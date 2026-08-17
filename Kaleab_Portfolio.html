@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kaleab Terefe Getahun — Customer Support &amp; Technical Support Portfolio</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --blue: #1B4F8A;
+    --blue-light: #EBF2FB;
+    --blue-mid: #2E6BB5;
+    --accent: #E8873A;
+    --dark: #111827;
+    --mid: #4B5563;
+    --light: #F9FAFB;
+    --border: #E5E7EB;
+    --green: #059669;
+    --green-bg: #ECFDF5;
+  }
+
+  body { font-family: 'Inter', sans-serif; color: var(--dark); background: #fff; line-height: 1.6; }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 60px;
+  }
+  .nav-brand { font-weight: 700; color: var(--blue); font-size: 1rem; letter-spacing: -0.02em; }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a { text-decoration: none; color: var(--mid); font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--blue); }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, var(--blue) 0%, var(--blue-mid) 100%);
+    color: white; padding: 5rem 2rem 4rem;
+    text-align: center; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-badge {
+    display: inline-block; background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: white; font-size: 0.75rem; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 0.35rem 1rem; border-radius: 999px; margin-bottom: 1.5rem;
+  }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.1; margin-bottom: 0.75rem; position: relative;
+  }
+  .hero-sub { font-size: 1.1rem; opacity: 0.85; margin-bottom: 2.5rem; font-weight: 300; }
+  .hero-stats {
+    display: flex; justify-content: center; gap: 1px;
+    background: rgba(255,255,255,0.15); border-radius: 12px;
+    overflow: hidden; max-width: 600px; margin: 0 auto 2.5rem;
+  }
+  .stat {
+    flex: 1; padding: 1.25rem 1rem; background: rgba(255,255,255,0.08);
+    text-align: center;
+  }
+  .stat-num { font-size: 1.75rem; font-weight: 700; line-height: 1; }
+  .stat-label { font-size: 0.7rem; opacity: 0.75; margin-top: 0.25rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .hero-contact { font-size: 0.85rem; opacity: 0.75; }
+  .hero-contact a { color: white; }
+
+  /* SECTIONS */
+  section { padding: 4rem 2rem; }
+  .container { max-width: 900px; margin: 0 auto; }
+  .section-label {
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    color: var(--blue); margin-bottom: 0.75rem; line-height: 1.2;
+  }
+  .section-intro { color: var(--mid); max-width: 640px; margin-bottom: 2.5rem; font-size: 0.95rem; }
+
+  /* ABOUT */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .about-card {
+    background: var(--light); border: 1px solid var(--border);
+    border-radius: 12px; padding: 1.5rem;
+  }
+  .about-card h3 { color: var(--blue); font-size: 0.875rem; font-weight: 600; margin-bottom: 0.5rem; }
+  .about-card p { color: var(--mid); font-size: 0.875rem; line-height: 1.6; }
+
+  /* TICKETS */
+  .tickets { display: flex; flex-direction: column; gap: 2.5rem; }
+  .ticket {
+    border: 1px solid var(--border); border-radius: 16px; overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  .ticket-header {
+    background: var(--light); border-bottom: 1px solid var(--border);
+    padding: 1rem 1.5rem; display: flex; align-items: center; gap: 1rem;
+  }
+  .ticket-id { font-size: 0.75rem; font-weight: 700; color: var(--blue); font-family: monospace; }
+  .ticket-tag {
+    font-size: 0.7rem; font-weight: 600; padding: 0.2rem 0.6rem;
+    border-radius: 999px; text-transform: uppercase; letter-spacing: 0.05em;
+  }
+  .tag-billing { background: #FEF3C7; color: #92400E; }
+  .tag-technical { background: #EDE9FE; color: #5B21B6; }
+  .tag-complaint { background: #FEE2E2; color: #991B1B; }
+  .tag-onboarding { background: #D1FAE5; color: #065F46; }
+  .tag-dispatch { background: #DBEAFE; color: #1E40AF; }
+  .ticket-scenario {
+    background: #FFFBEB; border-bottom: 1px solid #FDE68A;
+    padding: 1rem 1.5rem; font-size: 0.85rem; color: #78350F;
+  }
+  .ticket-scenario strong { display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem; }
+  .ticket-body { padding: 1.5rem; }
+  .message { display: flex; gap: 1rem; margin-bottom: 1.25rem; }
+  .message:last-child { margin-bottom: 0; }
+  .avatar {
+    width: 36px; height: 36px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.75rem; font-weight: 700; flex-shrink: 0; margin-top: 2px;
+  }
+  .avatar-customer { background: #FEE2E2; color: #991B1B; }
+  .avatar-kaleab { background: var(--blue-light); color: var(--blue); }
+  .message-content { flex: 1; }
+  .message-sender { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--mid); margin-bottom: 0.25rem; }
+  .message-text {
+    background: var(--light); border: 1px solid var(--border);
+    border-radius: 12px; padding: 0.875rem 1rem;
+    font-size: 0.875rem; line-height: 1.65; color: var(--dark);
+  }
+  .message.kaleab .message-text { background: var(--blue-light); border-color: #BFDBFE; }
+  .ticket-outcome {
+    background: var(--green-bg); border-top: 1px solid #A7F3D0;
+    padding: 0.875rem 1.5rem; display: flex; align-items: center; gap: 0.5rem;
+    font-size: 0.8rem; color: var(--green); font-weight: 600;
+  }
+
+  /* KNOWLEDGE BASE */
+  .kb-article {
+    border: 1px solid var(--border); border-radius: 16px; overflow: hidden;
+  }
+  .kb-header { background: var(--blue); color: white; padding: 1.5rem; }
+  .kb-header .kb-tag { font-size: 0.7rem; opacity: 0.75; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; }
+  .kb-header h3 { font-size: 1.1rem; font-weight: 600; }
+  .kb-body { padding: 1.5rem; }
+  .kb-body h4 { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--blue); margin: 1.25rem 0 0.5rem; }
+  .kb-body h4:first-child { margin-top: 0; }
+  .kb-body p { font-size: 0.875rem; color: var(--mid); margin-bottom: 0.5rem; }
+  .kb-steps { list-style: none; padding: 0; }
+  .kb-steps li {
+    display: flex; gap: 0.75rem; align-items: flex-start;
+    font-size: 0.875rem; color: var(--mid); margin-bottom: 0.625rem;
+  }
+  .step-num {
+    background: var(--blue); color: white;
+    width: 22px; height: 22px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.7rem; font-weight: 700; flex-shrink: 0; margin-top: 1px;
+  }
+  .tip-box {
+    background: #FFF7ED; border-left: 3px solid var(--accent);
+    padding: 0.875rem 1rem; border-radius: 0 8px 8px 0;
+    font-size: 0.85rem; color: #7C2D12; margin-top: 1rem;
+  }
+
+  /* TOOLS */
+  .tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
+  .tool-card {
+    background: var(--light); border: 1px solid var(--border);
+    border-radius: 10px; padding: 1rem; text-align: center;
+  }
+  .tool-name { font-weight: 600; font-size: 0.875rem; color: var(--dark); margin-bottom: 0.25rem; }
+  .tool-level { font-size: 0.75rem; color: var(--mid); }
+  .tool-dots { display: flex; gap: 4px; justify-content: center; margin-top: 0.5rem; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border); }
+  .dot.filled { background: var(--blue); }
+
+  /* CTA */
+  .cta { background: var(--blue); color: white; text-align: center; padding: 4rem 2rem; }
+  .cta h2 { font-family: 'DM Serif Display', serif; font-size: 2rem; margin-bottom: 0.75rem; }
+  .cta p { opacity: 0.8; margin-bottom: 2rem; font-size: 0.95rem; }
+  .cta-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .cta-btn {
+    padding: 0.75rem 1.75rem; border-radius: 8px; font-weight: 600;
+    font-size: 0.875rem; text-decoration: none; transition: all 0.2s;
+  }
+  .cta-primary { background: white; color: var(--blue); }
+  .cta-primary:hover { background: var(--blue-light); }
+  .cta-secondary { background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.3); }
+  .cta-secondary:hover { background: rgba(255,255,255,0.25); }
+
+  @media (max-width: 640px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .hero-stats { flex-direction: column; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">Kaleab Terefe Getahun</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#story">My Story</a>
+    <a href="#responses">Sample Responses</a>
+    <a href="#knowledge-base">Knowledge Base</a>
+    <a href="#capabilities">Capabilities</a>
+    <a href="#tools">Tools</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">Open to Remote Opportunities</div>
+  <h1>Customer Support &amp; Technical Support<br>Portfolio</h1>
+  <p class="hero-sub">Kaleab Terefe Getahun · Customer Support · Customer Success · Technical Support · Virtual Assistant · Dispatch · Ethiopian, based in Kenya (UTC+3) · US, UK & EU Hours</p>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">95%</div>
+      <div class="stat-label">CSAT Rating</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">90%</div>
+      <div class="stat-label">First Contact Resolution</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">4+</div>
+      <div class="stat-label">Years Experience</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">13+</div>
+      <div class="stat-label">Staff Trained &amp; Onboarded</div>
+    </div>
+  </div>
+  <p class="hero-contact">kaleabterefe9@gmail.com · linkedin.com/in/kaleab--t · +254 793 788 553</p>
+</div>
+
+<!-- ABOUT -->
+<section id="about" style="background: var(--light);">
+  <div class="container">
+    <div class="section-label">Background</div>
+    <h2 class="section-title">Who I Am</h2>
+    <p class="section-intro">I am a customer support professional with 4+ years of experience building and running support operations from the ground up — with additional depth in technical troubleshooting, customer success, virtual assistance and dispatch coordination. This portfolio shows how I actually think, write, and solve problems — not just what my resume says.</p>
+    <div class="about-grid">
+      <div class="about-card">
+        <h3>🏢 Business Owner Experience</h3>
+        <p>Owned and operated Prolex Movies & Entertainment for 5 years — building customer support operations from scratch, training 8+ staff, and managing 120+ weekly interactions while maintaining 95% CSAT.</p>
+      </div>
+      <div class="about-card">
+        <h3>🔧 Technical Exposure</h3>
+        <p>Hands-on Tier 1 and Tier 2 technical support at Tile Mobile Repair — diagnosing and resolving hardware faults, OS reinstallation, malware removal, network configuration errors and application failures across Android, iOS and Windows devices. Averaged 5-10 device repairs daily while serving as the customer-facing communication point throughout each repair lifecycle.</p>
+      </div>
+      <div class="about-card">
+        <h3>📈 Customer Success & Retention</h3>
+        <p>Delivered fully remote client support at Tedcon Real Estate, including onboarding and a structured follow-up system that increased client retention by 20%. Fully equipped for async and real-time remote work across US, UK, and EU time zones.</p>
+      </div>
+      <div class="about-card">
+        <h3>🧭 Virtual Assistance &amp; Dispatch</h3>
+        <p>Also experienced in scheduling support and operational/dispatch coordination alongside customer-facing work. I track outcomes, not just activity.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE SUMMARY, ACCOMPLISHMENTS & EXPECTATIONS -->
+<section id="story" style="background: var(--light);">
+  <div class="container">
+    <div class="section-label">Full Picture</div>
+    <h2 class="section-title">Experience, Accomplishments & Expectations</h2>
+
+    <!-- Experience Summary -->
+    <div style="margin-bottom: 2.5rem;">
+      <h3 style="font-family:'DM Serif Display',serif; font-size:1.4rem; color:var(--blue); margin-bottom:1rem;">My Experience in My Own Words</h3>
+      <p style="color:var(--mid); font-size:0.95rem; line-height:1.8; margin-bottom:1rem;">
+        Over the past 4+ years I've built my career across three different environments — all requiring the same core skills: clear communication, fast thinking and genuine care for the person on the other side.
+      </p>
+      <p style="color:var(--mid); font-size:0.95rem; line-height:1.8; margin-bottom:1rem;">
+        I started at Tedcon Real Estate delivering fully remote customer support — learning what it means to handle 20-30 client inquiries daily across chat, email and phone without a team around you. Then I owned and operated Prolex Movies & Entertainment for 5 years, where I didn't just do customer support — I built it from nothing. Hired the team, wrote the processes, handled the escalations, fixed the equipment and kept 120+ weekly customers satisfied throughout. Alongside that I worked part-time at Tile Mobile Repair, diagnosing and resolving hardware, software and network issues on Android, iOS and Windows devices — adding a technical layer that most support professionals don't have.
+      </p>
+      <p style="color:var(--mid); font-size:0.95rem; line-height:1.8;">
+        The result is a professional who has seen support from every angle: as a remote agent, as a business owner and as a hands-on technical problem solver.
+      </p>
+    </div>
+
+    <!-- Accomplishments -->
+    <div style="margin-bottom: 2.5rem;">
+      <h3 style="font-family:'DM Serif Display',serif; font-size:1.4rem; color:var(--blue); margin-bottom:1rem;">Key Accomplishments</h3>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+        <div style="background:white; border:1px solid var(--border); border-left:3px solid var(--blue); border-radius:8px; padding:1rem;">
+          <div style="font-size:1.5rem; font-weight:800; color:var(--blue); line-height:1;">95%</div>
+          <div style="font-size:0.8rem; color:var(--mid); margin-top:0.25rem;">CSAT sustained over 4+ years of high-volume operations</div>
+        </div>
+        <div style="background:white; border:1px solid var(--border); border-left:3px solid var(--accent); border-radius:8px; padding:1rem;">
+          <div style="font-size:1.5rem; font-weight:800; color:var(--accent); line-height:1;">90%</div>
+          <div style="font-size:0.8rem; color:var(--mid); margin-top:0.25rem;">First-contact resolution across all channels and industries</div>
+        </div>
+        <div style="background:white; border:1px solid var(--border); border-left:3px solid var(--blue); border-radius:8px; padding:1rem;">
+          <div style="font-size:1.5rem; font-weight:800; color:var(--blue); line-height:1;">20%</div>
+          <div style="font-size:0.8rem; color:var(--mid); margin-top:0.25rem;">Client retention increase through proactive follow-up system</div>
+        </div>
+        <div style="background:white; border:1px solid var(--border); border-left:3px solid var(--accent); border-radius:8px; padding:1rem;">
+          <div style="font-size:1.5rem; font-weight:800; color:var(--accent); line-height:1;">13+</div>
+          <div style="font-size:0.8rem; color:var(--mid); margin-top:0.25rem;">Staff trained and onboarded across two organizations</div>
+        </div>
+        <div style="background:white; border:1px solid var(--border); border-left:3px solid var(--accent); border-radius:8px; padding:1rem;">
+          <div style="font-size:1.5rem; font-weight:800; color:var(--accent); line-height:1;">&lt;15min</div>
+          <div style="font-size:0.8rem; color:var(--mid); margin-top:0.25rem;">Average incident resolution time across technical support roles</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Expectations -->
+    <div>
+      <h3 style="font-family:'DM Serif Display',serif; font-size:1.4rem; color:var(--blue); margin-bottom:1rem;">What I'm Looking For</h3>
+      <p style="color:var(--mid); font-size:0.95rem; line-height:1.8; margin-bottom:1.25rem;">
+        I am looking for a remote role that lets me do what I do best — communicate clearly, solve problems fast and make customers feel genuinely looked after.
+      </p>
+      <div style="background:white; border:1px solid var(--border); border-radius:12px; padding:1.5rem;">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; font-size:0.875rem;">
+          <div><span style="color:var(--blue); font-weight:700;">Role Type:</span><br><span style="color:var(--mid);">Customer Support · Customer Success · Technical Support · Help Desk · Virtual Assistant · Dispatcher</span></div>
+          <div><span style="color:var(--blue); font-weight:700;">Work Type:</span><br><span style="color:var(--mid);">Full-time, part-time and contract</span></div>
+          <div><span style="color:var(--blue); font-weight:700;">Location:</span><br><span style="color:var(--mid);">Fully remote · Ethiopian, based in Kenya (UTC+3) · US, UK or EU hours</span></div>
+          <div><span style="color:var(--blue); font-weight:700;">Currency:</span><br><span style="color:var(--mid);">USD · GBP · EUR</span></div>
+          <div><span style="color:var(--blue); font-weight:700;">Availability:</span><br><span style="color:var(--mid);">Immediately available</span></div>
+          <div><span style="color:var(--blue); font-weight:700;">Environment:</span><br><span style="color:var(--mid);">Async-first · Remote-first · Ownership over micromanagement</span></div>
+        </div>
+      </div>
+      <p style="color:var(--mid); font-size:0.875rem; line-height:1.7; margin-top:1.25rem; font-style:italic;">
+        "I am not looking for the easiest role. I am looking for the right one — where consistency, communication and genuine customer care are valued."
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- SAMPLE RESPONSES -->
+<section id="responses">
+  <div class="container">
+    <div class="section-label">Portfolio Demonstrations — Fictional Scenarios</div>
+    <h2 class="section-title">Sample Support Responses</h2>
+    <p class="section-intro">These are portfolio demonstrations of how I approach common support scenarios — showing my tone, problem-solving approach, and written communication style. Names, companies, and conversations are fictional and created for demonstration purposes.</p>
+
+    <div class="tickets">
+
+      <!-- TICKET 1: Angry Billing -->
+      <div class="ticket">
+        <div class="ticket-header">
+          <span class="ticket-id">#TKT-001</span>
+          <span class="ticket-tag tag-billing">Billing Dispute</span>
+          <span class="ticket-tag tag-complaint">Angry Customer</span>
+        </div>
+        <div class="ticket-scenario">
+          <strong>Scenario</strong>
+          A customer was charged twice for the same subscription and has emailed in frustrated, threatening to cancel and leave a bad review.
+        </div>
+        <div class="ticket-body">
+          <div class="message">
+            <div class="avatar avatar-customer">C</div>
+            <div class="message-content">
+              <div class="message-sender">Customer — Sarah M.</div>
+              <div class="message-text">I've been charged TWICE this month and nobody is helping me. I've been a customer for 2 years and this is how you treat me?? I want a refund immediately or I'm cancelling and telling everyone about this.</div>
+            </div>
+          </div>
+          <div class="message kaleab">
+            <div class="avatar avatar-kaleab">K</div>
+            <div class="message-content">
+              <div class="message-sender">Kaleab — Support Specialist</div>
+              <div class="message-text">Hi Sarah, thank you for reaching out — and I completely understand why you're frustrated. A double charge is never okay, and I'm sorry this happened, especially after two years with us.<br><br>This pattern is often related to a payment retry or duplicate transaction. I'd verify the transaction details first, then flag it for refund review and explain the process to you — typically 3–5 business days once approved.<br><br>I'd also flag your account so our billing team can investigate how this happened, to help make sure it doesn't occur again. You'd receive an email confirmation once the refund is processed.<br><br>Is there anything else I can help you with today, Sarah? Your loyalty genuinely means a lot to us and I want to make sure you leave this conversation feeling looked after.</div>
+            </div>
+          </div>
+        </div>
+        <div class="ticket-outcome">✓ De-escalated the conversation · Clear refund process explained · Customer trust maintained</div>
+      </div>
+
+      <!-- TICKET 2: Technical -->
+      <div class="ticket">
+        <div class="ticket-header">
+          <span class="ticket-id">#TKT-002</span>
+          <span class="ticket-tag tag-technical">Technical Issue</span>
+        </div>
+        <div class="ticket-scenario">
+          <strong>Scenario</strong>
+          A customer can't log into their account. They've already tried resetting their password and it still doesn't work. They're getting a vague error message.
+        </div>
+        <div class="ticket-body">
+          <div class="message">
+            <div class="avatar avatar-customer">C</div>
+            <div class="message-content">
+              <div class="message-sender">Customer — James O.</div>
+              <div class="message-text">I can't log in at all. I reset my password three times already and keep getting "authentication error." I need access urgently for a meeting in 2 hours.</div>
+            </div>
+          </div>
+          <div class="message kaleab">
+            <div class="avatar avatar-kaleab">K</div>
+            <div class="message-content">
+              <div class="message-sender">Kaleab — Support Specialist</div>
+              <div class="message-text">Hi James — I hear you, two hours is not a lot of time and I'm going to prioritize this right now.<br><br>An "authentication error" after multiple password resets could point to a possible account-side or browser-side issue. Let's rule out the quick fix first:<br><br>1. Try opening an incognito/private window and logging in there.<br>2. If that doesn't work, try a different browser entirely (Chrome, Firefox, Edge).<br><br>While you try that, I'd also check your account on our end for any flags or blocks.<br><br>Let me know what happens — I'll stay on this with you until we get you in.</div>
+            </div>
+          </div>
+          <div class="message">
+            <div class="avatar avatar-customer">C</div>
+            <div class="message-content">
+              <div class="message-sender">Customer — James O.</div>
+              <div class="message-text">Incognito didn't work but the different browser worked! Thank you!</div>
+            </div>
+          </div>
+          <div class="message kaleab">
+            <div class="avatar avatar-kaleab">K</div>
+            <div class="message-content">
+              <div class="message-sender">Kaleab — Support Specialist</div>
+              <div class="message-text">Great — glad you're in! That strongly suggests a browser-specific issue; cache, cookies, or extensions would be the next checks. When you have time after your meeting, clearing your main browser's cache and cookies is a good first step to try.<br><br>Good luck with your meeting, James!</div>
+            </div>
+          </div>
+        </div>
+        <div class="ticket-outcome">✓ Resolved in under 8 minutes · Customer unblocked before meeting · Likely cause narrowed down</div>
+      </div>
+
+      <!-- TICKET 3: Onboarding -->
+      <div class="ticket">
+        <div class="ticket-header">
+          <span class="ticket-id">#TKT-003</span>
+          <span class="ticket-tag tag-onboarding">New User Onboarding</span>
+        </div>
+        <div class="ticket-scenario">
+          <strong>Scenario</strong>
+          A new customer just signed up and is overwhelmed. They don't know where to start and are worried they made the wrong choice.
+        </div>
+        <div class="ticket-body">
+          <div class="message">
+            <div class="avatar avatar-customer">C</div>
+            <div class="message-content">
+              <div class="message-sender">Customer — Priya S.</div>
+              <div class="message-text">I just signed up but I'm completely lost. There's so much going on in the dashboard. I'm not very tech-savvy and I'm worried I won't be able to figure this out. Did I make the right decision signing up?</div>
+            </div>
+          </div>
+          <div class="message kaleab">
+            <div class="avatar avatar-kaleab">K</div>
+            <div class="message-content">
+              <div class="message-sender">Kaleab — Support Specialist</div>
+              <div class="message-text">Hi Priya! Welcome — and yes, absolutely, you made the right decision. Feeling overwhelmed at the start is completely normal and it means you're paying attention, which is already a great sign.<br><br>Let's make this simple. You don't need to figure out everything today. Here are the only three things that matter in your first week:<br><br>1. <strong>Set up your profile</strong> — takes about 5 minutes.<br>2. <strong>Complete your first key action in the dashboard</strong> — I'll point you to exactly where.<br>3. <strong>Save our help center link</strong> — it answers most common questions any time.<br><br>Everything else can wait. Which of these three would you like help with first?</div>
+            </div>
+          </div>
+        </div>
+        <div class="ticket-outcome">✓ Customer anxiety resolved · Clear next steps provided · Conversation continued positively</div>
+      </div>
+
+      <!-- TICKET 4: Dispatcher -->
+      <div class="ticket">
+        <div class="ticket-header">
+          <span class="ticket-id">#TKT-004</span>
+          <span class="ticket-tag tag-dispatch">Dispatch Coordination Demonstration</span>
+        </div>
+        <div class="ticket-scenario">
+          <strong>Scenario (Fictional)</strong>
+          A driver calls in — their truck has broken down en route. The load is time-sensitive and the receiver is expecting delivery in 3 hours.
+        </div>
+        <div class="ticket-body">
+          <div class="message">
+            <div class="avatar avatar-customer">D</div>
+            <div class="message-content">
+              <div class="message-sender">Driver — Mike T.</div>
+              <div class="message-text">Hey dispatch, I'm broken down on I-80 outside of Elko. Engine light came on, truck won't move. I've got a delivery due at the receiver in 3 hours. What do I do?</div>
+            </div>
+          </div>
+          <div class="message kaleab">
+            <div class="avatar avatar-kaleab">K</div>
+            <div class="message-content">
+              <div class="message-sender">Kaleab — Dispatcher</div>
+              <div class="message-text">Copy that Mike, I've got you. Stay safe and stay with the truck.<br><br>In this scenario, my approach as dispatcher would be:<br>1. Arrange roadside assistance — I'd take your exact mile marker to get someone routed to you.<br>2. Notify the receiver of the delay and give them an updated ETA window.<br>3. Check whether a nearby driver could do a relay transfer if roadside takes too long.<br><br>What's your exact mile marker? And does the load require temp control or any special handling I'd need to flag for a relay driver?</div>
+            </div>
+          </div>
+        </div>
+        <div class="ticket-outcome">✓ Demonstrates a dispatch coordination approach — prioritizing driver safety, receiver communication, and backup planning · Zero double-booking errors and 100% reconciliation accuracy maintained over 5 years of operations management</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- KNOWLEDGE BASE -->
+<section id="knowledge-base" style="background: var(--light);">
+  <div class="container">
+    <div class="section-label">Documentation Sample</div>
+    <h2 class="section-title">Sample Knowledge Base Article — Demonstration</h2>
+    <p class="section-intro">A well-written knowledge base reduces ticket volume and empowers customers to self-serve. Here's a fictional example of how I document processes.</p>
+
+    <div class="kb-article">
+      <div class="kb-header">
+        <div class="kb-tag">Account Management · Password & Access</div>
+        <h3>How to Reset Your Password and Regain Account Access</h3>
+      </div>
+      <div class="kb-body">
+        <h4>Overview</h4>
+        <p>If you're unable to log in, this guide will walk you through every step to regain access quickly.</p>
+
+        <h4>Step-by-Step: Reset Your Password</h4>
+        <ol class="kb-steps">
+          <li><div class="step-num">1</div><span>Go to the login page and click <strong>"Forgot Password"</strong> beneath the login button.</span></li>
+          <li><div class="step-num">2</div><span>Enter the email address you used when you signed up. Check your spam folder if you don't see the email within a few minutes.</span></li>
+          <li><div class="step-num">3</div><span>Click the reset link in the email. Note: reset links typically expire after a set time window.</span></li>
+          <li><div class="step-num">4</div><span>Create a new password that meets the platform's password requirements.</span></li>
+          <li><div class="step-num">5</div><span>Log in using your email and new password.</span></li>
+        </ol>
+
+        <h4>Still Can't Get In?</h4>
+        <p>If resetting your password doesn't work, try these steps before contacting support:</p>
+        <ol class="kb-steps">
+          <li><div class="step-num">1</div><span>Open an <strong>incognito or private browsing window</strong> and try logging in there.</span></li>
+          <li><div class="step-num">2</div><span>Try a <strong>different browser</strong> (Chrome, Firefox, Safari, Edge).</span></li>
+          <li><div class="step-num">3</div><span>Clear your browser cache and cookies, then try again.</span></li>
+        </ol>
+
+        <div class="tip-box">
+          💡 <strong>Pro tip:</strong> If the incognito window works but your regular browser doesn't, the issue may be caused by a browser extension or other browser-specific setting (like an ad blocker or VPN). Try disabling extensions one at a time to find the culprit.
+        </div>
+
+        <h4>When to Contact Support</h4>
+        <p>Contact us if: you're not receiving the reset email after several minutes (and it's not in spam), or you get an "account suspended" or "authentication error" message.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT I CAN HELP WITH -->
+<section id="capabilities" style="background: var(--light); padding-top: 3rem; padding-bottom: 3rem;">
+  <div class="container">
+    <div class="section-label">Capabilities</div>
+    <h2 class="section-title" style="font-size: clamp(1.3rem, 2.5vw, 1.75rem);">What I Can Help With</h2>
+    <div style="display:flex; flex-wrap:wrap; gap:0.6rem; margin-top:1rem;">
+      <span style="background:white; border:1px solid var(--border); border-radius:999px; padding:0.5rem 1rem; font-size:0.85rem; color:var(--mid);">Live Chat</span>
+      <span style="background:white; border:1px solid var(--border); border-radius:999px; padding:0.5rem 1rem; font-size:0.85rem; color:var(--mid);">Email Support</span>
+      <span style="background:white; border:1px solid var(--border); border-radius:999px; padding:0.5rem 1rem; font-size:0.85rem; color:var(--mid);">Ticket Management</span>
+      <span style="background:white; border:1px solid var(--border); border-radius:999px; padding:0.5rem 1rem; font-size:0.85rem; color:var(--mid);">Technical Troubleshooting</span>
+      <span style="background:white; border:1px solid var(--border); border-radius:999px; padding:0.5rem 1rem; font-size:0.85rem; color:var(--mid);">Customer Success</span>
+      <span style="background:white; border:1px solid var(--border); border-radius:999px; padding:0.5rem 1rem; font-size:0.85rem; color:var(--mid);">Order Tracking</span>
+      <span style="background:white; border:1px solid var(--border); border-radius:999px; padding:0.5rem 1rem; font-size:0.85rem; color:var(--mid);">Knowledge Base</span>
+      <span style="background:white; border:1px solid var(--border); border-radius:999px; padding:0.5rem 1rem; font-size:0.85rem; color:var(--mid);">CRM / Ticketing Systems</span>
+      <span style="background:white; border:1px solid var(--border); border-radius:999px; padding:0.5rem 1rem; font-size:0.85rem; color:var(--mid);">Virtual Assistance</span>
+      <span style="background:white; border:1px solid var(--border); border-radius:999px; padding:0.5rem 1rem; font-size:0.85rem; color:var(--mid);">Dispatch Coordination</span>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section id="tools">
+  <div class="container">
+    <div class="section-label">Technical Proficiency</div>
+    <h2 class="section-title">Tools & Platforms — Certified, Experienced, or Independently Trained</h2>
+    <p class="section-intro">Tools I have used professionally or trained on independently.</p>
+    <div class="tools-grid">
+      <div class="tool-card">
+        <div class="tool-name">Freshdesk</div>
+        <div class="tool-level">Certified</div>
+        <div class="tool-dots">
+          <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div>
+        </div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">Zendesk</div>
+        <div class="tool-level">Working Knowledge</div>
+        <div class="tool-dots">
+          <div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        </div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">Zoho Desk</div>
+        <div class="tool-level">Working Knowledge</div>
+        <div class="tool-dots">
+          <div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        </div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">Google Workspace</div>
+        <div class="tool-level">Advanced</div>
+        <div class="tool-dots">
+          <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div>
+        </div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">WhatsApp Business</div>
+        <div class="tool-level">Advanced</div>
+        <div class="tool-dots">
+          <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div>
+        </div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">Telegram</div>
+        <div class="tool-level">Advanced</div>
+        <div class="tool-dots">
+          <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div>
+        </div>
+      </div>
+    </div>
+    <p style="margin-top:1.5rem; font-size:0.85rem; color:var(--mid);">
+      <strong style="color:var(--blue);">Training:</strong> Freshworks Academy — Freshdesk Support Fundamentals
+    </p>
+  </div>
+</section>
+
+
+<!-- CTA -->
+<div class="cta" id="contact">
+  <h2>Ready to Work Together?</h2>
+  <p>I'm actively seeking remote customer support, customer success, technical support, virtual assistant, and dispatch roles paying in USD, GBP, or EUR. Available immediately.</p>
+  <div class="cta-links">
+    <button onclick="copyEmail()" class="cta-btn cta-primary" id="emailBtn">📋 Copy Email Address</button>
+    <a href="https://linkedin.com/in/kaleab--t" target="_blank" class="cta-btn cta-secondary">LinkedIn Profile</a>
+  </div>
+  <p style="margin-top:1rem; font-size:0.85rem; opacity:0.65;">kaleabterefe9@gmail.com</p>
+  <script>
+    function copyEmail() {
+      navigator.clipboard.writeText('kaleabterefe9@gmail.com').then(() => {
+        const btn = document.getElementById('emailBtn');
+        btn.textContent = '✅ Copied!';
+        setTimeout(() => { btn.textContent = '📋 Copy Email Address'; }, 2500);
+      }).catch(() => {
+        prompt('Copy this email:', 'kaleabterefe9@gmail.com');
+      });
+    }
+  </script>
+</div>
+
+</body>
+</html>
